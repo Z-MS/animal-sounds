@@ -26,7 +26,7 @@
     let optionsDisabled = ref(false);
 
     function playSound() {
-        var questionAudio = new Audio(`sounds/${currentQuestion.value.audio}.mp3`);
+        var questionAudio = new Audio(`sounds/${currentQuestion.value.question}.mp3`);
         questionAudio.play();
     }
 
@@ -38,8 +38,8 @@
     }
 
     function loadNextQuestion() {
-        questionCounter.value++;
-        if(questionCounter.value < props.questions.length) {
+        if(questionCounter.value + 1 < props.questions.length) {
+            questionCounter.value++;
             optionsDisabled.value = false;
             currentQuestion.value = props.questions[questionCounter.value];
         } else {

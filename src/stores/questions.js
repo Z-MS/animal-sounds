@@ -1,13 +1,15 @@
 import { defineStore } from "pinia";
-import generateQuestions from "@/utils/quizGenerator";
+import generateQuiz from "@/utils/sound-mcq/quizGenerator";
+import ANIMAL_SOUNDS from '../assets/data/animal_sounds.json';
+import OPTIONS from '../assets/data/options.json';
 
 export const useQuestionsStore = defineStore('questions', {
     state: () => ({
-        questions: generateQuestions()
+        questions: generateQuiz(ANIMAL_SOUNDS, OPTIONS)
     }),
     actions: {
         setQuestions() {
-            this.questions = generateQuestions();
+            this.questions = generateQuiz(ANIMAL_SOUNDS, OPTIONS);
         }
     }
 })

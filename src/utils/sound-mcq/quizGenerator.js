@@ -1,4 +1,4 @@
-const { generateRandomIndex, getRandomElement } = require("./utils/randomGenerators");
+import { generateRandomIndex, getRandomElement } from "./utils/randomGenerators";
 
 function generateQuiz(questionBank, optionsBank, numberOfQuestions = 5, numberOfOptions = 4, mapQA) {
 	if(!questionBank) {
@@ -77,4 +77,5 @@ function generateQuiz(questionBank, optionsBank, numberOfQuestions = 5, numberOf
 	return questions 
 }
 
-module.exports = generateQuiz;
+// module.exports = generateQuiz;
+export default generateQuiz;

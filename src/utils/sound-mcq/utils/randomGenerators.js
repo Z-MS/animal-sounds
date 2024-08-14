@@ -9,4 +9,4 @@ function getRandomElement(array) {
 	return randomElement;
 }
 
-module.exports = { generateRandomIndex, getRandomElement };
+export { generateRandomIndex, getRandomElement };

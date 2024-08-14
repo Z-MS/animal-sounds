@@ -15,4 +15,4 @@ function arrayHasDuplicates(array) {
 	return array.every((element) => array.indexOf(element) === array.lastIndexOf(element));
 }
 
-module.exports = { isAOOPropUnique, arrayHasDuplicates };
+export default { isAOOPropUnique, arrayHasDuplicates };
