@@ -58,7 +58,6 @@
 
     function restart() {
         emit('generateQuestions');
-        gtag('event', 'restart');
 
         questionCounter.value = 0;
         currentQuestion.value = props.questions[questionCounter.value];
