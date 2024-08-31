@@ -1,5 +1,5 @@
 <script setup>
-    import { ref, onMounted } from 'vue';
+    import { ref, onMounted, reactive } from 'vue';
     import Question from './Question.vue';
     import { Modal } from 'bootstrap';
     import { useUserStore } from '@/stores/user'; 
@@ -24,9 +24,10 @@
     let questionCounter = ref(0);
     let currentQuestion = ref(props.questions[questionCounter.value]);
     let optionsDisabled = ref(false);
+    let questionAudio = null;
 
     function playSound() {
-        var questionAudio = new Audio(`sounds/${currentQuestion.value.question}.mp3`);
+        questionAudio = new Audio(`sounds/${currentQuestion.value.question}.mp3`);
         questionAudio.play();
     }
 
@@ -38,6 +39,9 @@
     }
 
     function loadNextQuestion() {
+        // stop playing the audio
+        questionAudio.pause();
+
         if(questionCounter.value + 1 < props.questions.length) {
             questionCounter.value++;
             optionsDisabled.value = false;
