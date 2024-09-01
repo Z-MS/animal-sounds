@@ -11,8 +11,8 @@
 </script>
 
 <template>
-    <div class="container">
-        <div class="row">
+    <div>
+        <div>
             <div class="options">
                 <button
                  v-for="(option, index) in question.options"
@@ -30,25 +30,23 @@
 
 <style scoped>
     .options {
-        margin: 0 auto;
-        width: 70%;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     .option {
-        margin: 0.75rem;
-        width: 100%;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
         background-color: orange;
+        font-size: 1.15rem;
     }
 
     @media (min-width: 576px) {
         .options {
-            padding-left: 10%;
-        }
-
-        .option {
-            width: 100px;
-            padding: 0.75rem;
+            grid-template-columns: repeat(2, 1fr);
         }
     }
 

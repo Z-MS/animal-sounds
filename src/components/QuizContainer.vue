@@ -1,5 +1,5 @@
 <script setup>
-    import { ref, onMounted, reactive } from 'vue';
+    import { ref, onMounted } from 'vue';
     import Question from './Question.vue';
     import { Modal } from 'bootstrap';
     import { useUserStore } from '@/stores/user'; 
@@ -89,7 +89,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div id="sound__button__container">
             <button id="sound__icon__button" class="btn btn-info" @click="playSound">
                 <img id="sound__icon" src="/loudspeaker.svg" width="50"/>
             </button>
@@ -137,5 +137,11 @@
 #sound__icon__button:focus {
     background-color: cyan;
     transition: background-color 2s;
+}
+
+@media (max-width: 376px) {
+    #sound__button__container {
+        margin-left: 1rem;
+    } 
 }
 </style>
