@@ -15,29 +15,36 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="container d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
       <main>
         <div v-if="!gameStarted" id="splash__screen">
-        <p id="app__title">Animal Sounds</p>
-        <button class="btn lawn-green__button" @click="gameStarted = true">Start</button>
-      </div>
-      <div v-else>
-        <QuizContainer
-         :questions="questionStore.questions" 
-         @generate-questions="questionStore.setQuestions"
-         />      
-      </div>
+          <p id="app__title">Animal Sounds</p>
+          <button id="start__button" class="btn" @click="gameStarted = true">Start</button>
+        </div>
+        <div v-else>
+          <QuizContainer
+          :questions="questionStore.questions" 
+          @generate-questions="questionStore.setQuestions"
+          />      
+        </div>
     </main>
   </div>
 </template>
 
 <style scoped>
 
+  * {
+    box-sizing: border-box;
+  }
+
+  main {
+    display: grid;
+    place-items: center;
+    min-height: 70vh;
+  }
+
   #splash__screen {
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    display: grid;
   }
 
   #app__title {
@@ -45,7 +52,11 @@ onMounted(() => {
     font-size: 1.5rem;
   }
 
-  .lawn-green__button {
+  #start__button {
+    margin: 0 auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    font-size: 1.15rem;
     background-color: lawngreen;
     color: rgb(26, 65, 21);
   }

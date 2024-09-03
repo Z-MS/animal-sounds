@@ -94,7 +94,6 @@
                 <img id="sound__icon" src="/loudspeaker.svg" width="50"/>
             </button>
             <img src="/arrow.svg" width="50"/>
-            <!-- <span>Click to hear the sound</span> -->
         </div>
         <Question :question="currentQuestion" :options-disabled="optionsDisabled" @option-selected="checkAnswer"/>
         <button
@@ -111,21 +110,27 @@
 
 <style scoped>
 .question {
-    margin-top: max(5vh, 4rem);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    place-content: center;
 }
 
 .question__details {
+    place-self: center;
     margin-bottom: 1rem;
     font-weight: 600;
 }
 
 #next__button {
+    place-self: center;
     margin-top: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     font-size: 1.25rem;
     background-color: greenyellow;
+}
+
+#sound__button__container {
+    place-self: center;    
 }
 
 #sound__icon__button {
