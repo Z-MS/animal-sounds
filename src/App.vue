@@ -40,7 +40,7 @@ onMounted(() => {
   main {
     display: grid;
     place-items: center;
-    min-height: 70vh;
+    min-height: 100vh;
   }
 
   #splash__screen {
