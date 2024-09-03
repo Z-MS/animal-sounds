@@ -76,15 +76,14 @@
         <div class="modal fade" id="gameOverModal" tabindex="-1" aria-labelledby="gameOverModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header justify-content-center border border-0">
                         <h1 class="modal-title fs-5" id="gameOverModalLabel">Game Over!</h1>
-                        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                     </div>
                     <div class="modal-body">
-                        <p>You scored {{score}}</p>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="restart">Restart</button>
+                        <p class="text-center">You scored {{score}}</p>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer justify-content-center border border-0">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="restart">Restart</button>
                     </div>
                 </div>
             </div>
