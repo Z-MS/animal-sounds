@@ -1,6 +1,6 @@
 // checks whether properties in an array of objects are equal
 function isAOOPropUnique(array, prop) {
-	for(let i = 0; i < array.length - 1; i++) {
+	for(let i = 0; i < array.length - 2; i++) {
 		for(let j = i + 1; j < array.length - 1; j++) {
 			if(array[i][prop] === array[j][prop]) {
 				return false
