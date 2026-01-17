@@ -28,6 +28,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: 'Zayyad'
+        run: echo "LOUDSPEAKER VAR is':'  ${{ vars.LOUDSPEAKER_RAW_SVG_ENABLED }}"
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up Node
