@@ -148,8 +148,8 @@
 }
 
 #loudspeaker_icon {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
 }
 
 @media (max-width: 376px) {
