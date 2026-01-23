@@ -29,7 +29,6 @@
     onMounted(() => {
         userStore.setHighScore();
         gameOverModal = new Modal('#gameOverModal');
-        console
     })
 
     let score = 0;
