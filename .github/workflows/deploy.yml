@@ -38,8 +38,8 @@ jobs:
           sdk-key: ${{ secrets.VITE_CONFIGCAT_SDK_KEY }}
           flag-keys: inline_svg_enabled
       - name: SVG flag status
-        if: steps.flags.outputs.inline_svg_enabled == 'true'
-        run: echo "INLINE SVG is enabled"
+        # if: steps.flags.outputs.inline_svg_enabled == 'true'
+        run: echo "INLINE SVG is ${{ steps.flags.outputs.inline_svg_enabled }}"
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up Node
