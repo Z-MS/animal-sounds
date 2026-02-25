@@ -27,9 +27,19 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      CONFIGCAT_API_USER: ${{ secrets.CONFIGCAT_API_USER }}
+      CONFIGCAT_API_PASS: ${{ secrets.CONFIGCAT_API_PASS }}
     steps:
-      - name: Zayyad
-        run: echo "LOUDSPEAKER VAR is':'  ${{ vars.LOUDSPEAKER_RAW_SVG_ENABLED }}"
+      - name: Check inline svg status
+        id: flags
+        uses: configcat/cli-actions/eval-flag@v1
+        with:
+          sdk-key: ${{ secrets.VITE_CONFIGCAT_SDK_KEY }}
+          flag-key: inline_svg_enabled
+      - name: SVG flag status
+        if: steps.flags.outputs.inline_svg_enabled == 'true'
+        run: echo "INLINE SVG is enabled"
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up Node
