@@ -36,7 +36,7 @@ jobs:
         uses: configcat/cli-actions/eval-flag@v1
         with:
           sdk-key: ${{ secrets.VITE_CONFIGCAT_SDK_KEY }}
-          flag-key: inline_svg_enabled
+          flag-keys: inline_svg_enabled
       - name: SVG flag status
         if: steps.flags.outputs.inline_svg_enabled == 'true'
         run: echo "INLINE SVG is enabled"
