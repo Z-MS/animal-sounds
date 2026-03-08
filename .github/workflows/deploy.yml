@@ -21,11 +21,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  switch_status:
     runs-on: ubuntu-latest
     env:
       CONFIGCAT_API_USER: ${{ secrets.CONFIGCAT_API_USER }}
@@ -40,6 +36,19 @@ jobs:
       - name: SVG flag status
         if: steps.flags.outputs.inline_svg_enabled == 'true'
         run: echo "INLINE SVG is ${{ steps.flags.outputs.inline_svg_enabled }}"
+  deploy:
+    needs: switch_status
+    # if: needs.switch_status.outputs.inline_svg_enabled == 'true'  
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    env:
+      CONFIGCAT_API_USER: ${{ secrets.CONFIGCAT_API_USER }}
+      CONFIGCAT_API_PASS: ${{ secrets.CONFIGCAT_API_PASS }}
+    steps:
+      - name: Print
+        run: echo "Deploying with INLINE SVG enabled: ${{ needs.switch_status.outputs.inline_svg_enabled }}"
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up Node
