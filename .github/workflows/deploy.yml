@@ -38,7 +38,7 @@ jobs:
         run: echo "INLINE SVG is ${{ steps.flags.outputs.inline_svg_enabled }}"
   deploy:
     needs: switch_status
-    # if: needs.switch_status.outputs.inline_svg_enabled == 'true'  
+    if: needs.switch_status.outputs.inline_svg_enabled == 'true'  
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
